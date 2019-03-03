@@ -1,0 +1,19 @@
+{
+  "name": "konva",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./src/index.html",
+    "build": "parcel ./src/index.html build --out-dir=./build"
+  },
+  "dependencies": {
+    "@types/react": "^16.8.6",
+    "parcel-bundler": "^1.11.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  },
+  "devDependencies": {
+    "typescript": "^3.3.3333"
+  }
+}
