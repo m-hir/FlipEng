@@ -1,0 +1,30 @@
+.card-container {
+  -webkit-perspective: 1000;
+}
+.card-container:hover .card-item {
+  -webkit-transform: rotateY(180deg);
+}
+.card-container:hover .card-front {
+  z-index: 1;
+}
+.card-container:hover .card-back {
+  z-index: 2;
+}
+.card-item {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  transition: all 0.4s ease-in-out;
+}
+.card-front {
+  position: relative;
+  z-index: 2;
+  -webkit-backface-visibility: hidden;
+}
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+}
