@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom'
 import * as React from 'react';
-import * as img1 from './img_card_front.png';
-import * as img2 from './img_card_back.png';
 
 interface Props {
     title:string;
     speed:number;
 }
 class FlipCard extends React.Component<Props> {
+    
+
     static defaultProps:Props = {
         title:"",
         speed:0
@@ -17,22 +17,34 @@ class FlipCard extends React.Component<Props> {
         console.log(props);
     }
 
-    private onClick() {
-        this.props.onClick();
+    private OnKeyDown(){
+        console.log("OnKeyDown");
+
+        var container =  document.getElementById("card-container");
+        var isFliped : Boolean = container.classList.contains('flip-after') ;
+        if(isFliped)
+        {
+            container.classList.remove("flip-after");
+            container.classList.add("flip-before");
+        }
+        else
+        {
+            container.classList.remove("flip-before");
+            container.classList.add("flip-after");
+        }
+        
     }
     render () {
         return (
-            <div className="card">
+            <div className="card" onKeyDown={this.OnKeyDown} tabIndex="0">
                 {/* <p>{this.props.test}</p> */}
                 {/* <h1>おはよ</h1> */}
-                <div className="card-container">
+                <div id="card-container" className="flip-before">
                     <div className="card-item card-front">
-                        {/* <img src={img1.default} alt="" /> */}
-                        <div className="text">by the way</div>
+                        <div className="card-text">by the way</div>
                     </div>
                     <div className="card-item card-back">
-                        {/* <img src={img2.default} alt="" /> */}
-                        <div className="text">ところで</div>
+                        <div className="card-text">ところで</div>
                     </div>
                 </div>
             </div>
@@ -50,7 +62,6 @@ class App extends React.Component {
         </div>)
     }
 }
-
 
 ReactDOM.render(
     <App />, 

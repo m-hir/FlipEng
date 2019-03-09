@@ -2,12 +2,16 @@
   -webkit-perspective: 1000;
 }
 
-.card-container{
+#card-container{
   -webkit-transform-style: preserve-3d;
   -webkit-transition: all 0.4s ease-in-out;
+  display: inline-block;
 }
 
-.card:hover .card-container {
+.flip-before{
+}
+
+.flip-after{
   transform: rotateY(180deg);
 }
 
@@ -19,12 +23,12 @@
   /* transform-origin: 50%; */
 }
 
-.card:hover .card-front {
+/* .card:hover .card-front {
   z-index: 1;
 }
 .card:hover .card-back {
   z-index: 2;
-}
+} */
 
 .card-front{
   position: relative;
@@ -39,7 +43,7 @@
   -webkit-transform: rotateY(180deg);
 }
 
-.text
+.card-text
 {
   font-size: 5em;
 }
