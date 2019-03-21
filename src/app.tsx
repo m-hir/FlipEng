@@ -12,14 +12,21 @@ class FlipCard extends React.Component<Props> {
         title:"",
         speed:0
     }
+
     constructor(props) {
         super(props);
-        console.log(props);
+        // console.log(props);
+        
     }
 
     private OnKeyDown(){
         console.log("OnKeyDown");
 
+        
+    }
+
+    private Flip()
+    {
         var container =  document.getElementById("card-container");
         var isFliped : Boolean = container.classList.contains('flip-after') ;
         if(isFliped)
@@ -33,6 +40,15 @@ class FlipCard extends React.Component<Props> {
             container.classList.add("flip-after");
         }
         
+        setTimeout(() => {
+            this.Flip(); 
+        }, 3000);
+    }
+
+    private OnStart(){
+        setTimeout(() => {
+            this.Flip(); 
+        }, 3000);
     }
     render () {
         return (
@@ -47,7 +63,9 @@ class FlipCard extends React.Component<Props> {
                         <div className="card-text">ところで</div>
                     </div>
                 </div>
+                <button onClick={this.OnStart.bind(this)}>start</button>
             </div>
+            
         );
     }
 }
