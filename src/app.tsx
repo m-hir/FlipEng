@@ -1,28 +1,23 @@
 import ReactDOM from 'react-dom'
 import * as React from 'react';
+import * as img1 from './img_card_front.png';
+import * as img2 from './img_card_back.png';
+import SampleComponent from './components/sampleComponent';
+import SampleStore from './stores/sampleStore'
+
 
 interface Props {
     title:string;
     speed:number;
 }
 class FlipCard extends React.Component<Props> {
-    
-
     static defaultProps:Props = {
         title:"",
         speed:0
     }
-
     constructor(props) {
         super(props);
-        // console.log(props);
-        
-    }
-
-    private OnKeyDown(){
-        console.log("OnKeyDown");
-
-        
+        console.log(props);
     }
 
     private Flip()
@@ -43,6 +38,7 @@ class FlipCard extends React.Component<Props> {
         setTimeout(() => {
             this.Flip(); 
         }, 3000);
+        
     }
 
     private OnStart(){
@@ -50,11 +46,12 @@ class FlipCard extends React.Component<Props> {
             this.Flip(); 
         }, 3000);
     }
+
+
     render () {
         return (
-            <div className="card" onKeyDown={this.OnKeyDown} tabIndex="0">
+            <div className="card">
                 {/* <p>{this.props.test}</p> */}
-                {/* <h1>おはよ</h1> */}
                 <div id="card-container" className="flip-before">
                     <div className="card-item card-front">
                         <div className="card-text">by the way</div>
@@ -65,7 +62,6 @@ class FlipCard extends React.Component<Props> {
                 </div>
                 <button onClick={this.OnStart.bind(this)}>start</button>
             </div>
-            
         );
     }
 }
@@ -73,15 +69,14 @@ class FlipCard extends React.Component<Props> {
 class App extends React.Component {
     render() {
         return (<div>
-            {/* <h1>おはよー</h1> */}
-            {/* <FlipCard title="さんぷる１" speed={0} onClick={() => {  console.log("hoge"); }} />
-            <FlipCard test="ok"/> */}
             <FlipCard />
+            {/* <SampleComponent store={store} /> */}
         </div>)
     }
 }
 
+
 ReactDOM.render(
-    <App />, 
+    <App />,
     document.getElementById("app")
 );
