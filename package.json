@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@types/react": "^16.8.6",
+    "mobx": "^5.9.0",
+    "mobx-react": "^5.4.3",
     "parcel-bundler": "^1.11.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3"
