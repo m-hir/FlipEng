@@ -1,7 +1,5 @@
 import ReactDOM from 'react-dom'
 import * as React from 'react';
-import * as img1 from './img_card_front.png';
-import * as img2 from './img_card_back.png';
 import SampleComponent from './components/sampleComponent';
 import SampleStore from './stores/sampleStore'
 
